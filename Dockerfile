@@ -1,5 +1,7 @@
 FROM ubuntu:22.04
 
+ENV RUBY_VERSION 3.2.2
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
@@ -14,7 +16,7 @@ RUN echo 'eval "$(~/.rbenv/bin/rbenv init - bash)"' >> ~/.bashrc
 ENV PATH=/root/.rbenv/shims:/root/.rbenv/bin:$PATH
 RUN git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
-RUN rbenv install 3.2.2 && rm -f /tmp/ruby-build.*.log
-RUN rbenv global 3.2.2
+RUN rbenv install $RUBY_VERSION && rm -f /tmp/ruby-build.*.log
+RUN rbenv global $RUBY_VERSION
 
 CMD [ "irb" ]
