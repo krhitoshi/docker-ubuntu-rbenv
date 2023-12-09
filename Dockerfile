@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM --platform=$BUILDPLATFORM ubuntu:22.04
 
 ENV RUBY_VERSION 3.2.2
 
