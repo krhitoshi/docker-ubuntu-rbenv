@@ -1,7 +1,5 @@
 FROM ubuntu:22.04
 
-WORKDIR /app
-
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
