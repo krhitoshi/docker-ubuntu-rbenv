@@ -16,7 +16,8 @@ RUN echo 'eval "$(~/.rbenv/bin/rbenv init - bash)"' >> ~/.bashrc
 ENV PATH=/root/.rbenv/shims:/root/.rbenv/bin:$PATH
 RUN git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
-RUN rbenv install $RUBY_VERSION && rm -f /tmp/ruby-build.*.log
+RUN CONFIGURE_OPTS="--disable-install-doc --disable-install-rdoc --disable-install-capi" \
+    rbenv install $RUBY_VERSION && rm -f /tmp/ruby-build.*.log
 RUN rbenv global $RUBY_VERSION
 
 CMD [ "irb" ]
