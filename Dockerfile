@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    build-essential libyaml-dev zlib1g-dev \
+    build-essential libyaml-dev zlib1g-dev libssl-dev \
     git curl ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
