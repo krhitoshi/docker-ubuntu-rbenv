@@ -1,4 +1,5 @@
-FROM krhitoshi/ubuntu-rbenv:22.04
+ARG UBUNTU_VERSION=22.04
+FROM krhitoshi/ubuntu-rbenv:${UBUNTU_VERSION}
 
 ARG RUBY_VERSION=3.2.2
 ENV RUBY_VERSION $RUBY_VERSION
